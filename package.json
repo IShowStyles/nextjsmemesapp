@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "build:prisma": "npx prisma generate",
+    "migrate:prod": "npx prisma migrate deploy",
+    "build:prod": "npm run build:prisma && npm run migrate:prod && next build && npm run seed",
     "seed": "npx tsx prisma/seed.ts",
     "dev": "next dev --turbopack",
     "build": "next build",
